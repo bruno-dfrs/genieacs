@@ -1,0 +1,205 @@
+- type: "'tags'"
+- type: "'ping'"
+- type: "'parameter-list'"
+  parameters:
+    - element: "'span.inform'"
+      label: "'Last inform'"
+      parameter: DATE_STRING(Events.Inform)
+      type: "'container'"
+      components:
+        - type: "'parameter'"
+        - chart: "'online'"
+          type: "'overview-dot'"
+        - type: "'summon-button'"
+          parameters:
+            - InternetGatewayDevice.DeviceInfo.HardwareVersion
+            - InternetGatewayDevice.DeviceInfo.SoftwareVersion
+            - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.MACAddress
+            - InternetGatewayDevice.WANDevice.*.WANConnectionDevice.*.WANIPConnection.*.ExternalIPAddress
+            - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.SSID
+            - InternetGatewayDevice.LANDevice.*.WLANConfiguration.*.KeyPassphrase
+            - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.HostName
+            - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.IPAddress
+            - InternetGatewayDevice.LANDevice.*.Hosts.Host.*.MACAddress
+- type: "'container'"
+  element:
+    tag: "'div'"
+    attributes:
+      style: "'background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;
+        padding:14px 18px; margin:0 0 16px 0; box-shadow:0 1px 3px
+        rgba(16,24,40,.08)'"
+  components:
+    - type: "'container'"
+      components:
+        - "'Identificações do aparelho'"
+      element:
+        tag: "'h3'"
+        attributes:
+          style: "'margin:0 0 12px 0; padding:0 0 8px 0; border-bottom:2px solid #2b6cb0;
+            color:#2b6cb0; font-size:18px; font-weight:700'"
+    - type: "'parameter-list'"
+      parameters:
+        - label: "'Fabricante'"
+          parameter: VirtualParameters.Manufacturer
+        - label: "'Modelo'"
+          parameter: DeviceID.ProductClass
+        - label: "'Versão de hardware'"
+          parameter: VirtualParameters.HardwareVersion
+        - label: "'Versão de software'"
+          parameter: VirtualParameters.SoftwareVersion
+        - label: "'Número de série'"
+          parameter: VirtualParameters.SerialNumber
+        - label: "'IP WAN'"
+          parameter: VirtualParameters.WANIP
+        - label: "'MAC WAN'"
+          parameter: VirtualParameters.WANMAC
+        - label: "'PPPoE Usuário'"
+          parameter: VirtualParameters.PPPoEUsername
+        - label: "'PPPoE Senha'"
+          parameter: VirtualParameters.PPPoEPassword
+        - label: "'VLAN'"
+          parameter: VirtualParameters.Vlan
+- type: "'container'"
+  element:
+    tag: "'div'"
+    attributes:
+      style: "'background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;
+        padding:14px 18px; margin:0 0 16px 0; box-shadow:0 1px 3px
+        rgba(16,24,40,.08)'"
+  components:
+    - type: "'container'"
+      components:
+        - "'Status'"
+      element:
+        tag: "'h3'"
+        attributes:
+          style: "'margin:0 0 12px 0; padding:0 0 8px 0; border-bottom:2px solid #2b6cb0;
+            color:#2b6cb0; font-size:18px; font-weight:700'"
+    - type: "'parameter-list'"
+      parameters:
+        - label: "'Uso de CPU (%)'"
+          parameter: VirtualParameters.CPU
+        - label: "'Uso de memória (%)'"
+          parameter: VirtualParameters.RAM
+        - label: "'Temperatura (°C)'"
+          parameter: VirtualParameters.Temperature
+        - label: "'Sinal RX'"
+          parameter: VirtualParameters.Rx
+        - label: "'Sinal TX'"
+          parameter: VirtualParameters.Tx
+        - label: "'Uptime'"
+          parameter: VirtualParameters.Uptime
+- type: "'container'"
+  element:
+    tag: "'div'"
+    attributes:
+      style: "'background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;
+        padding:14px 18px; margin:0 0 16px 0; box-shadow:0 1px 3px
+        rgba(16,24,40,.08)'"
+  components:
+    - type: "'container'"
+      components:
+        - "'Wi-Fi'"
+      element:
+        tag: "'h3'"
+        attributes:
+          style: "'margin:0 0 12px 0; padding:0 0 8px 0; border-bottom:2px solid #2b6cb0;
+            color:#2b6cb0; font-size:18px; font-weight:700'"
+    - type: "'container'"
+      element:
+        tag: "'div'"
+        attributes:
+          style: "'display:flex; flex-wrap:wrap; gap:24px'"
+      components:
+        - type: "'container'"
+          element:
+            tag: "'div'"
+            attributes:
+              style: "'flex:1 1 320px; min-width:0'"
+          components:
+            - type: "'container'"
+              components:
+                - "'2.4 GHz'"
+              element:
+                tag: "'h4'"
+                attributes:
+                  style: "'margin:4px 0 6px 0; padding:0 0 0 8px; border-left:3px solid #2b6cb0;
+                    color:#4a5568; font-size:14px; font-weight:700;
+                    text-transform:uppercase; letter-spacing:.05em'"
+            - type: "'parameter-list'"
+              parameters:
+                - label: "'SSID'"
+                  parameter: VirtualParameters.Wifi24SSID
+                - label: "'Senha'"
+                  parameter: VirtualParameters.Wifi24Password
+                - label: "'Canal'"
+                  parameter: VirtualParameters.Wifi24Channel
+                - label: "'Largura do canal'"
+                  parameter: VirtualParameters.Wifi24Bandwidth
+        - type: "'container'"
+          element:
+            tag: "'div'"
+            attributes:
+              style: "'flex:1 1 320px; min-width:0'"
+          components:
+            - type: "'container'"
+              components:
+                - "'5 GHz'"
+              element:
+                tag: "'h4'"
+                attributes:
+                  style: "'margin:4px 0 6px 0; padding:0 0 0 8px; border-left:3px solid #2b6cb0;
+                    color:#4a5568; font-size:14px; font-weight:700;
+                    text-transform:uppercase; letter-spacing:.05em'"
+            - type: "'parameter-list'"
+              parameters:
+                - label: "'SSID'"
+                  parameter: VirtualParameters.Wifi5SSID
+                - label: "'Senha'"
+                  parameter: VirtualParameters.Wifi5Password
+                - label: "'Canal'"
+                  parameter: VirtualParameters.Wifi5Channel
+                - label: "'Largura do canal'"
+                  parameter: VirtualParameters.Wifi5Bandwidth
+- type: "'container'"
+  element:
+    tag: "'div'"
+    attributes:
+      style: "'background:#ffffff; border:1px solid #dfe3e8; border-radius:8px;
+        padding:14px 18px; margin:0 0 16px 0; box-shadow:0 1px 3px
+        rgba(16,24,40,.08)'"
+  components:
+    - type: "'container'"
+      components:
+        - "'LAN hosts'"
+      element:
+        tag: "'h3'"
+        attributes:
+          style: "'margin:0 0 12px 0; padding:0 0 8px 0; border-bottom:2px solid #2b6cb0;
+            color:#2b6cb0; font-size:18px; font-weight:700'"
+    - type: "'container'"
+      components:
+        - VirtualParameters.LanHosts
+      element:
+        tag: "'pre'"
+        attributes:
+          style: "'margin:0; padding:0; background:transparent; border:0;
+            font-family:Consolas, Menlo, monospace; font-size:13px;
+            line-height:1.6; white-space:pre; overflow-x:auto'"
+- element: "'div'"
+  type: "'container'"
+  components:
+    - element: "'h3'"
+      type: "'container'"
+      components:
+        - "'Faults'"
+    - type: "'device-faults'"
+- element: "'div.container-full-width'"
+  type: "'container'"
+  components:
+    - element: "'h3'"
+      type: "'container'"
+      components:
+        - "'All parameters'"
+    - type: "'all-parameters'"
+- type: "'device-actions'"

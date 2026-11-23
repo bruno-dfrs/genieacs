@@ -1,0 +1,16 @@
+online:
+  label: "'Online status'"
+  slices:
+    1_past15min:
+      color: "'#31a354'"
+      filter: Events.Inform > NOW() - 15 * 60 * 1000
+      label: "'Past 15 minutes'"
+    2_past24h:
+      color: "'#f6c445'"
+      filter: Events.Inform > NOW() - 24 * 60 * 60 * 1000 AND Events.Inform < NOW() -
+        15 * 60 * 1000
+      label: "'Past 24 hours'"
+    3_unresponsive24h:
+      color: "'#e34a33'"
+      filter: Events.Inform < NOW() - 24 * 60 * 60 * 1000
+      label: "'Unresponsive 24h+'"

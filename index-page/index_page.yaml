@@ -1,0 +1,38 @@
+- label: "'Serial number'"
+  parameter: DeviceID.SerialNumber
+  type: "'device-link'"
+  components:
+    - type: "'parameter'"
+- label: "'Fabricante'"
+  parameter: VirtualParameters.Manufacturer
+- label: "'Modelo'"
+  parameter: DeviceID.ProductClass
+- label: "'Versão de Hardware'"
+  parameter: VirtualParameters.HardwareVersion
+- label: "'Versão de Software'"
+  parameter: VirtualParameters.SoftwareVersion
+- label: "'PPPoE'"
+  parameter: VirtualParameters.PPPoEUsername
+- label: "'IP WAN'"
+  parameter: VirtualParameters.WANIP
+- label: "'MAC WAN'"
+  parameter: VirtualParameters.WANMAC
+- label: "'Tempo Ligado'"
+  parameter: VirtualParameters.Uptime
+- label: "'Rx'"
+  parameter: VirtualParameters.Rx
+- label: "'Tx'"
+  parameter: VirtualParameters.Tx
+- element: "'span.inform'"
+  label: "'Last inform'"
+  parameter: DATE_STRING(Events.Inform)
+  type: "'container'"
+  components:
+    - type: "'parameter'"
+    - chart: "'online'"
+      type: "'overview-dot'"
+- label: "'Tags'"
+  parameter: Tags
+  type: "'tags'"
+  unsortable: true
+  writable: false
