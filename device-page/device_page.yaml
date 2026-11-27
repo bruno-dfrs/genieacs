@@ -48,7 +48,7 @@
         - label: "'Versão de software'"
           parameter: VirtualParameters.SoftwareVersion
         - label: "'Número de série'"
-          parameter: VirtualParameters.SerialNumber
+          parameter: DeviceID.SerialNumber
         - label: "'IP WAN'"
           parameter: VirtualParameters.WANIP
         - label: "'MAC WAN'"
